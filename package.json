@@ -1,0 +1,18 @@
+{
+  "name": "coupon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "scripts": {
+    "babel": "npx babel -w src/js/script.js -o js/script.min.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

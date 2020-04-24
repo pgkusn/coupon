@@ -1,0 +1,124 @@
+/* #region function */
+@function rem($px) {
+    @return ($px / 16) + rem;
+}
+
+@function em($px) {
+    @return ($px / 16) + em;
+}
+
+@function lineHeight($px, $fz: 16) {
+    @return $px / $fz;
+}
+
+// Converting Photoshop Letter Spacing to CSS
+@function getLetterSpacing($num) {
+    @return ($num / 1000) + em;
+}
+
+@function columnWidth($margin, $cols) {
+    @return calc((100% - #{$margin} * #{$cols} * 2) / #{$cols});
+}
+
+// vw 換算
+@function vw($px, $screenSize) {
+    @return ($px * 100 / $screenSize) + vw;
+}
+/* #endregion function */
+
+/* #region mixin */
+@mixin imgBg($width, $height, $img, $pos: 50%) {
+    width: $width;
+    height: $height;
+    background-image: url($img);
+    background-position: $pos;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@mixin bg($img, $pos: 50% 0) {
+    background-image: url($img);
+    background-position: $pos;
+    background-repeat: no-repeat;
+}
+
+@mixin btn($width, $height, $color, $bgColor, $radius: 0, $maxWidth: false, $display: block) {
+    display: block;
+    height: $height;
+    border-radius: $radius;
+    background-color: $bgColor;
+    color: $color;
+    text-align: center;
+    line-height: $height;
+    @if ($maxWidth == true) {
+        max-width: $width;
+    }
+    @else {
+        width: $width;
+    }
+}
+
+// 增加點擊範圍
+// $width: 原寬度(false: 不增加)
+// $height: 原高度(false: 不增加)
+// $widthScope: 可點擊寬度
+// $heightScope: 可點擊高度
+@mixin clickableArea($width, $height, $widthScope: 44px, $heightScope: 44px) {
+    position: absolute;
+    content: '';
+
+    // 寬度
+    @if ($width != false) {
+        right: -($widthScope - $width) / 2;
+        left: -($widthScope - $width) / 2;
+    }
+    @else {
+        right: 0;
+        left: 0;
+    }
+
+    // 高度
+    @if ($height != false) {
+        top: -($heightScope - $height) / 2;
+        bottom: -($heightScope - $height) / 2;
+    }
+    @else {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+// youtube嵌入
+@mixin youtubeIframe() {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 */
+    width: 100%;
+    height: 0;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    @content;
+}
+/* #endregion mixin */
+
+/* #region extend */
+%clearfix {
+    &::after {
+        display: block;
+        clear: both;
+        height: 0;
+        content: '';
+    }
+}
+
+%hide-text {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+/* #endregion extend */
