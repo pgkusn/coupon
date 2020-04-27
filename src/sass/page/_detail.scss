@@ -18,8 +18,58 @@
         font-size: 21px;
     }
     .title {
-        margin-bottom: 20px;
+        margin-bottom: 32px;
         text-align: center;
         font-size: 24px;
+    }
+    .field {
+        position: relative;
+        display: flex;
+        + .field {
+            margin-top: 16px;
+        }
+        &::before {
+            width: 23px;
+            color: #f9ff26;
+            content: '*';
+            font-size: 14px;
+            line-height: 30px;
+        }
+        > input {
+            flex: auto;
+            padding-left: 17px;
+            height: 30px;
+            outline: none;
+            border: 1px solid rgba(#fff, .5);
+            border-radius: 25px;
+            background-color: #fff;
+            color: #fff;
+            transition: background-color .15s;
+            caret-color: #979797;
+            &:focus,
+            &.active {
+                background-color: rgb(82, 87, 225);
+            }
+        }
+        > .text {
+            position: absolute;
+            top: calc(50% - 7.5px);
+            left: 40px;
+            color: #a2a2a1;
+            font-size: 14px;
+            transition: transform .15s;
+            pointer-events: none;
+            @at-root {
+                .detail .field > input:focus ~ .text,
+                .detail .field > input.active ~ .text {
+                    padding-right: 3px;
+                    padding-left: 3px;
+                    background-color: rgb(82, 87, 225);
+                    color: rgba(#fff, .5);
+                    font-size: 11px;
+                    transform: translateY(-18px);
+                }
+            }
+        }
     }
 }
