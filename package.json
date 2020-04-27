@@ -11,7 +11,7 @@
     "babel-preset-minify": "^0.5.1"
   },
   "scripts": {
-    "babel": "npx babel -w src/js/script.js -o js/script.min.js"
+    "babel": "npx babel -w src/js/coupon.js -o assets/resource/js/coupon.min.js"
   },
   "author": "",
   "license": "ISC"

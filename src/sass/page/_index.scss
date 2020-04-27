@@ -1,3 +1,167 @@
 .index {
-    background-color: #faa;
+    min-height: 605px;
+    height: 100%;
+    background: url('../image/coupon/index/bg-s.png') 50% 0/cover;
+    @media (min-width: #{$tablet-width}px) {
+        min-height: 360px;
+        background-image: url('../image/coupon/index/bg-m.png');
+    }
+    @media (min-width: #{$desktop-width}px) {
+        min-height: 650px;
+        background-image: url('../image/coupon/index/bg.png');
+    }
+    @media (min-width: #{$large-width + 1}px) {
+        min-height: 910px;
+        background-image: url('../image/coupon/index/bg.png');
+    }
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding-top: 92px;
+        max-width: 1720px;
+        height: 100%;
+        align-items: center;
+        @media (min-width: #{$tablet-width}px) {
+            padding-top: 74px;
+        }
+        @media (min-width: #{$desktop-width}px) {
+            padding-top: 100px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            padding-top: 133px;
+        }
+    }
+    .logo {
+        margin-bottom: 100px;
+        width: 63px;
+        @media (min-width: #{$tablet-width}px) {
+            position: absolute;
+            top: 54px;
+            left: calc(50% - 320px);
+            margin-bottom: 0;
+        }
+        @media (min-width: #{$desktop-width}px) {
+            top: 70px;
+            left: 70px;
+            width: 100px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            top: 86px;
+            left: 10px;
+            width: 155px;
+        }
+    }
+    .subtitle {
+        margin-bottom: 37px;
+        font-size: 22px;
+        @media (min-width: #{$tablet-width}px) {
+            font-size: 30px;
+        }
+        @media (min-width: #{$desktop-width}px) {
+            margin-bottom: 70px;
+            font-size: 50px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            margin-bottom: 145px;
+            font-size: 72px;
+        }
+    }
+    .title {
+        margin-bottom: 45px;
+        font-size: 28px;
+        @media (min-width: #{$tablet-width}px) {
+            margin-bottom: 35px;
+        }
+        @media (min-width: #{$desktop-width}px) {
+            margin-bottom: 60px;
+            font-size: 43px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            margin-bottom: 113px;
+            font-size: 60px;
+        }
+    }
+    .desc {
+        margin-bottom: 65px;
+        color: #fff;
+        text-align: center;
+        font-size: 10px;
+        line-height: 1.5;
+        @media (min-width: #{$tablet-width}px) {
+            margin-bottom: 35px;
+            font-size: 13px;
+        }
+        @media (min-width: #{$desktop-width}px) {
+            margin-bottom: 60px;
+            font-size: 25px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            margin-bottom: 68px;
+            font-size: 34px;
+        }
+    }
+    .start-btn {
+        position: relative;
+        width: 90px;
+        height: 26px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 26px;
+        @media (min-width: #{$desktop-width}px) {
+            width: 228px;
+            height: 65px;
+            font-size: 36px;
+            line-height: 65px;
+        }
+        @media (min-width: #{$large-width + 1}px) {
+            width: 228px;
+            height: 65px;
+            font-size: 36px;
+            line-height: 65px;
+        }
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: solid 2px #fff;
+            border-radius: 32.5px;
+            background-image: radial-gradient(circle at 17% -78%, #c8c3e2, #8372ff 138%, #6150e4 138%);
+            box-shadow: 0 -6px 3px 0 rgba(0, 0, 0, .5);
+            content: '';
+            opacity: .34;
+        }
+        &::after {
+            position: absolute;
+            bottom: -87px;
+            left: 50%;
+            width: 114px;
+            height: 16px;
+            background-color: #0a003d;
+            content: '';
+            filter: blur(10px);
+            transform: translateX(-50%);
+            @media (min-width: #{$tablet-width}px) {
+                bottom: -51px;
+            }
+            @media (min-width: #{$desktop-width}px) {
+                bottom: -120px;
+                width: 298px;
+                height: 40px;
+                background-color: #0b004a;
+                filter: blur(20px);
+            }
+            @media (min-width: #{$large-width + 1}px) {
+                bottom: -149px;
+                width: 298px;
+                height: 40px;
+                background-color: #0b004a;
+                filter: blur(20px);
+            }
+        }
+    }
 }

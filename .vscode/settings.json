@@ -1,5 +1,12 @@
 {
     "liveServer.settings.ignoreFiles": [
         "src/**"
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/assets/resource/css/"
+        }
     ]
 }
