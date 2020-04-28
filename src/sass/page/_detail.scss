@@ -1,8 +1,14 @@
 .detail {
-    height: 100%;
+    padding-bottom: 92px;
+    min-height: 100%;
     background: url('../image/coupon/detail/bg-s.png') 50% 0/cover;
+    @media (min-width: #{$tablet-width}px) {
+        background-image: url('../image/coupon/detail/bg-m.png');
+    }
+    @media (min-width: #{$tablet-width + 1}px) {
+        background-image: url('../image/coupon/detail/bg.png');
+    }
     .container {
-        padding-top: 56px;
         padding-right: 30px;
         padding-left: 30px;
     }
@@ -11,65 +17,258 @@
         top: 17px;
         left: 17px;
         width: 30px;
+        @media (min-width: #{$tablet-width}px) {
+            position: static;
+            display: block;
+            margin-right: 44px;
+            width: 91px;
+        }
     }
     .subtitle {
         margin-bottom: 27px;
+        padding-top: 56px;
         text-align: center;
         font-size: 21px;
+        @media (min-width: #{$tablet-width}px) {
+            display: flex;
+            padding-left: 43px;
+            font-size: 36px;
+            align-items: center;
+        }
     }
     .title {
-        margin-bottom: 32px;
         text-align: center;
         font-size: 24px;
+    }
+    label {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    [type=radio],
+    [type=checkbox] {
+        margin: 0;
+        margin-right: 10px;
+        width: 23px;
+        height: 23px;
+        outline: none;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        background-color: transparent;
+        appearance: none;
+    }
+    .radio-mark,
+    .checkbox-mark {
+        position: absolute;
+        display: none;
+        width: 23px;
+        color: #e3ee00;
+        text-align: center;
+        @at-root {
+            .detail input:checked ~ .radio-mark,
+            .detail input:checked ~ .checkbox-mark {
+                display: block;
+            }
+        }
+    }
+    .radio-desc,
+    .checkbox-desc {
+        padding-left: 33px;
+        line-height: 1.5;
+        &--electron {
+            font-size: 14px;
+        }
+        &--triplicate {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #e3ee00;
+        }
     }
     .field {
         position: relative;
         display: flex;
-        + .field {
-            margin-top: 16px;
+        margin-top: 16px;
+        align-items: center;
+        &:first-of-type {
+            margin-top: 32px;
         }
         &::before {
-            width: 23px;
+            flex: none;
+            width: 21px;
             color: #f9ff26;
-            content: '*';
+            content: '＊';
             font-size: 14px;
-            line-height: 30px;
         }
         > input {
             flex: auto;
             padding-left: 17px;
+            width: 100%;
             height: 30px;
             outline: none;
             border: 1px solid rgba(#fff, .5);
             border-radius: 25px;
             background-color: #fff;
             color: #fff;
+            font-size: 14px;
             transition: background-color .15s;
             caret-color: #979797;
             &:focus,
             &.active {
-                background-color: rgb(82, 87, 225);
+                background-color: transparent;
             }
         }
-        > .text {
+        &__text {
             position: absolute;
             top: calc(50% - 7.5px);
             left: 40px;
             color: #a2a2a1;
             font-size: 14px;
-            transition: transform .15s;
+            transition: .15s;
             pointer-events: none;
             @at-root {
-                .detail .field > input:focus ~ .text,
-                .detail .field > input.active ~ .text {
+                .detail .field > input:focus ~ .field__text,
+                .detail .field > input.active ~ .field__text {
                     padding-right: 3px;
                     padding-left: 3px;
-                    background-color: rgb(82, 87, 225);
+                    background-color: transparent;
                     color: rgba(#fff, .5);
                     font-size: 11px;
-                    transform: translateY(-18px);
+                    transform: translateY(-17px);
+                    &.style1 {
+                        background-color: #5452e9;
+                    }
+                    &.style2 {
+                        background-image: linear-gradient(to right, #4c34cc, #2e17a9);
+                    }
                 }
             }
         }
+    }
+    .fields {
+        @media (min-width: #{$tablet-width}px) {
+            position: relative;
+            margin: 0 auto;
+            width: 704px;
+            height: 460px;
+            background: url('../image/coupon/detail/form-bg-m.png') no-repeat;
+        }
+    }
+    .main {
+        @media (min-width: #{$tablet-width}px) {
+            position: absolute;
+            top: 60px;
+            right: 120px;
+            width: 288px;
+        }
+    }
+    .code {
+        position: relative;
+        margin-top: 23px;
+        height: 219px;
+        background: url('../image/coupon/detail/code-bg.png') no-repeat;
+        @media (min-width: #{$tablet-width}px) {
+            position: absolute;
+            top: 300px;
+            left: 50px;
+            margin-top: 0;
+            width: 193px;
+            background: none;
+        }
+        &__form {
+            position: absolute;
+            top: 45px;
+            left: 130px;
+            width: 156px;
+            @media (min-width: #{$tablet-width}px) {
+                position: static;
+                width: 100%;
+            }
+        }
+        .title {
+            margin-bottom: 20px;
+        }
+        input {
+            height: 26px;
+            ~ .field__text {
+                top: calc(50% - 6.5px);
+            }
+        }
+    }
+    .invoice {
+        position: relative;
+        color: #fff;
+        &::before,
+        &::after {
+            position: absolute;
+            right: 30px;
+            left: 30px;
+            height: 2px;
+            border-top: 2px dashed #979797;
+            content: '';
+        }
+        &__title {
+            margin-bottom: 45px;
+            padding-top: 1em;
+            text-align: center;
+            font-size: 18px;
+        }
+        label {
+            margin-bottom: 1em;
+            &:not(:first-of-type) {
+                margin-top: 1em;
+            }
+        }
+        .radio-desc {
+            &:last-of-type {
+                padding-bottom: 62px;
+            }
+        }
+        [type=text] {
+            padding-left: 12px;
+            width: 100%;
+            height: 33px;
+            outline: none;
+            border: solid 1px #e6e6e6;
+            border-radius: 4px;
+            background-color: rgba(216, 216, 216, .17);
+            color: rgba(#fff, .5);
+            font-size: 14px;
+            &::placeholder {
+                color: rgba(#fff, .5);
+                font-size: 14px;
+            }
+        }
+    }
+    .postscript {
+        margin-bottom: 38px;
+        padding-top: 37px;
+        label {
+            position: relative;
+            display: flex;
+            color: #e8d74f;
+            align-items: center;
+        }
+        .checkbox-desc {
+            color: #fff;
+            + .checkbox-desc {
+                margin-top: 1em;
+            }
+            strong {
+                color: #e8d74f;
+            }
+        }
+    }
+    [type=submit] {
+        display: block;
+        margin: 0 auto;
+        width: 122px;
+        height: 42px;
+        border: none;
+        border-radius: 7px;
+        background-image: linear-gradient(to bottom, #dedeff, #6c6c80);
+        color: #0f0e5e;
+        font-weight: 500;
+        font-size: 24px;
     }
 }
