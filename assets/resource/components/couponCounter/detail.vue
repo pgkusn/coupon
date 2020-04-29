@@ -4,7 +4,7 @@
             <a href="/" class="logo" title="回首頁"><img src="assets/resource/image/coupon/logo.png" alt=""></a>
             Vidol 精彩戲劇．電影看不完
         </h2>
-        <form action="https://webtest.vidol.tv/payments/billing_coupon" method="post">
+        <form action="/payments/billing_coupon" method="post">
             <div class="fields">
                 <div class="main container">
                     <h1 class="title">優惠兌換櫃台</h1>
