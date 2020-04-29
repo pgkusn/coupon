@@ -9,7 +9,7 @@
         padding-bottom: 140px;
         background-image: url('../image/coupon/detail/bg-m.png');
     }
-    @media (min-width: #{$large-width}px) {
+    @media (min-width: #{$large-width + 1}px) {
         padding-bottom: 307px;
         background-image: url('../image/coupon/detail/bg.png');
     }
@@ -21,7 +21,7 @@
             padding: 0;
             max-width: 690px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             padding-right: 30px;
             padding-left: 30px;
             max-width: 1400px;
@@ -38,7 +38,7 @@
             margin-right: 44px;
             width: 91px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             position: absolute;
             top: 86px;
             left: percentage(102 / 1920);
@@ -59,7 +59,7 @@
             justify-content: center;
             align-items: center;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             margin-bottom: 77px;
             padding-top: 86px;
             font-size: 72px;
@@ -73,7 +73,7 @@
         @media (min-width: #{$tablet-width}px) {
             font-size: 30px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             font-size: 60px;
         }
     }
@@ -99,7 +99,7 @@
             height: 30px;
             border-width: 3px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             margin-right: 26px;
             width: 40px;
             height: 40px;
@@ -108,22 +108,29 @@
     .radio-mark,
     .checkbox-mark {
         position: absolute;
+        top: 0;
+        left: 0;
         display: none;
         width: 23px;
+        height: 23px;
         color: #e3ee00;
-        text-align: center;
+        transform: translateY(1px);
+        justify-content: center;
+        align-items: center;
         @media (min-width: #{$tablet-width}px) {
             width: 30px;
+            height: 30px;
             font-size: 20px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             width: 40px;
+            height: 40px;
             font-size: 30px;
         }
         @at-root {
             .detail input:checked ~ .radio-mark,
             .detail input:checked ~ .checkbox-mark {
-                display: block;
+                display: flex;
             }
         }
     }
@@ -134,12 +141,12 @@
         @media (min-width: #{$tablet-width}px) {
             padding-left: 50px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             padding-left: 66px;
         }
         &--electron {
             font-size: 14px;
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 font-size: 30px;
             }
         }
@@ -147,9 +154,9 @@
             margin-bottom: 12px;
             @media (min-width: #{$tablet-width}px) {
                 margin-bottom: 20px;
-                font-size: 30px;
+                font-size: 26px;
             }
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 margin-bottom: 30px;
                 font-size: 36px;
             }
@@ -163,12 +170,12 @@
         display: flex;
         margin-top: 16px;
         align-items: center;
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             margin-top: 35px;
         }
         &:first-of-type {
             margin-top: 30px;
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 margin-top: 50px;
             }
         }
@@ -178,7 +185,7 @@
             color: #f9ff26;
             content: '＊';
             font-size: 14px;
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 width: 48px;
                 font-size: 30px;
             }
@@ -196,7 +203,8 @@
             font-size: 14px;
             transition: background-color .15s;
             caret-color: #979797;
-            @media (min-width: #{$large-width}px) {
+            appearance: none;
+            @media (min-width: #{$large-width + 1}px) {
                 padding-left: 30px;
                 height: 62px;
                 border-radius: 31px;
@@ -215,7 +223,7 @@
             font-size: 14px;
             transition: .15s;
             pointer-events: none;
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 top: calc(50% - 15px);
                 left: 78px;
                 font-size: 36px;
@@ -229,7 +237,7 @@
                     color: rgba(#fff, .5);
                     font-size: 11px;
                     transform: translateY(-17px);
-                    @media (min-width: #{$large-width}px) {
+                    @media (min-width: #{$large-width + 1}px) {
                         font-size: 21px;
                         transform: translateY(-33px);
                     }
@@ -257,7 +265,7 @@
             height: 460px;
             background: url('../image/coupon/detail/form-bg-m.png') no-repeat;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             max-width: 1717px;
             width: 100%;
             height: 1061px;
@@ -274,7 +282,7 @@
             padding-left: 0;
             width: 288px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             top: 120px;
             left: 50%;
             width: 635px;
@@ -293,7 +301,7 @@
             width: 193px;
             background: none;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             top: 670px;
             left: calc(50% - 610px);
             width: 473px;
@@ -312,12 +320,12 @@
             margin-bottom: 20px;
         }
         input {
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 height: 84px;
                 border-radius: 42px;
             }
             ~ .field__text {
-                @media (min-width: #{$large-width}px) {
+                @media (min-width: #{$large-width + 1}px) {
                     top: calc(50% - 21px);
                 }
             }
@@ -349,7 +357,7 @@
                 padding-top: 30px;
                 font-size: 30px;
             }
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 margin-bottom: 80px;
                 padding-top: 50px;
                 font-size: 36px;
@@ -363,15 +371,62 @@
             }
             @media (min-width: #{$tablet-width}px) {
                 margin-bottom: .5em;
-                font-size: 30px;
+                font-size: 26px;
             }
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 font-size: 36px;
             }
         }
         .radio-desc {
             &:last-of-type {
                 padding-bottom: 62px;
+            }
+            &.select {
+                position: relative;
+                @media (min-width: #{$tablet-width}px) {
+                    width: 414px;
+                }
+                @media (min-width: #{$large-width + 1}px) {
+                    width: 546px;
+                }
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    right: 12px;
+                    width: 10px;
+                    height: 10px;
+                    border-bottom: 2px solid #fff;
+                    border-left: 2px solid #fff;
+                    content: '';
+                    transform: translateY(-60%) rotate(-45deg);
+                }
+            }
+        }
+        select {
+            padding-left: 12px;
+            width: 100%;
+            height: 33px;
+            outline: none;
+            border: solid 1px #e6e6e6;
+            border-radius: 4px;
+            background-color: rgba(216, 216, 216, .17);
+            color: #fff;
+            font-size: 12px;
+            appearance: none;
+            @media (min-width: #{$mobile-width}px) {
+                font-size: 14px;
+            }
+            @media (min-width: #{$tablet-width}px) {
+                padding-left: 17px;
+                height: 44px;
+                border-width: 3px;
+                border-radius: 7px;
+                font-size: 17px;
+            }
+            @media (min-width: #{$large-width + 1}px) {
+                padding-left: 23px;
+                height: 58px;
+                font-size: 23px;
             }
         }
         [type=text] {
@@ -384,6 +439,7 @@
             background-color: rgba(216, 216, 216, .17);
             color: rgba(#fff, .5);
             font-size: 14px;
+            appearance: none;
             @media (min-width: #{$tablet-width}px) {
                 padding-left: 17px;
                 width: 364px;
@@ -392,7 +448,7 @@
                 border-radius: 7px;
                 font-size: 21px;
             }
-            @media (min-width: #{$large-width}px) {
+            @media (min-width: #{$large-width + 1}px) {
                 padding-left: 23px;
                 width: 480px;
                 height: 58px;
@@ -404,7 +460,7 @@
                 @media (min-width: #{$tablet-width}px) {
                     font-size: 21px;
                 }
-                @media (min-width: #{$large-width}px) {
+                @media (min-width: #{$large-width + 1}px) {
                     font-size: 26px;
                 }
             }
@@ -415,17 +471,17 @@
         padding-top: 37px;
         @media (min-width: #{$tablet-width}px) {
             margin-bottom: 120px;
-            font-size: 30px;
+            font-size: 26px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             margin-bottom: 95px;
             font-size: 32px;
         }
         label {
             position: relative;
             display: flex;
+            margin-bottom: .1em;
             color: #e8d74f;
-            line-height: 1.5;
             align-items: center;
         }
         .checkbox-desc {
@@ -449,14 +505,18 @@
         color: #0f0e5e;
         font-weight: 500;
         font-size: 24px;
+        cursor: pointer;
         @media (min-width: #{$tablet-width}px) {
             width: 164px;
             height: 50px;
             font-size: 36px;
         }
-        @media (min-width: #{$large-width}px) {
+        @media (min-width: #{$large-width + 1}px) {
             width: 263px;
             height: 74px;
+        }
+        &.disabled {
+            opacity: .5;
         }
     }
 }
