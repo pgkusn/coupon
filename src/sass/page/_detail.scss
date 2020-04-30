@@ -9,7 +9,7 @@
         padding-bottom: 140px;
         background-image: url('../image/coupon/detail/bg-m.png');
     }
-    @media (min-width: #{$large-width + 1}px) {
+    @media (min-width: 1920px) {
         padding-bottom: 307px;
         background-image: url('../image/coupon/detail/bg.png');
     }
@@ -21,7 +21,7 @@
             padding: 0;
             max-width: 690px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             padding-right: 30px;
             padding-left: 30px;
             max-width: 1400px;
@@ -38,7 +38,7 @@
             margin-right: 44px;
             width: 91px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             position: absolute;
             top: 86px;
             left: percentage(102 / 1920);
@@ -59,7 +59,7 @@
             justify-content: center;
             align-items: center;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             margin-bottom: 77px;
             padding-top: 86px;
             font-size: 72px;
@@ -70,10 +70,10 @@
     .title {
         text-align: center;
         font-size: 24px;
-        @media (min-width: #{$tablet-width}px) {
-            font-size: 30px;
+        @media (min-width: #{$desktop-width}px) {
+            font-size: 40px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             font-size: 60px;
         }
     }
@@ -95,11 +95,11 @@
         appearance: none;
         @media (min-width: #{$tablet-width}px) {
             margin-right: 20px;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-width: 3px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             margin-right: 26px;
             width: 40px;
             height: 40px;
@@ -118,11 +118,11 @@
         justify-content: center;
         align-items: center;
         @media (min-width: #{$tablet-width}px) {
-            width: 30px;
-            height: 30px;
-            font-size: 20px;
+            width: 28px;
+            height: 28px;
+            font-size: 18px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             width: 40px;
             height: 40px;
             font-size: 30px;
@@ -141,12 +141,12 @@
         @media (min-width: #{$tablet-width}px) {
             padding-left: 50px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             padding-left: 66px;
         }
         &--electron {
             font-size: 14px;
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 font-size: 30px;
             }
         }
@@ -154,9 +154,9 @@
             margin-bottom: 12px;
             @media (min-width: #{$tablet-width}px) {
                 margin-bottom: 20px;
-                font-size: 26px;
+                font-size: 24px;
             }
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 margin-bottom: 30px;
                 font-size: 36px;
             }
@@ -170,12 +170,15 @@
         display: flex;
         margin-top: 16px;
         align-items: center;
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: #{$desktop-width}px) {
+            margin-top: 25px;
+        }
+        @media (min-width: 1920px) {
             margin-top: 35px;
         }
         &:first-of-type {
             margin-top: 30px;
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 margin-top: 50px;
             }
         }
@@ -185,7 +188,7 @@
             color: #f9ff26;
             content: '＊';
             font-size: 14px;
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 width: 48px;
                 font-size: 30px;
             }
@@ -204,7 +207,11 @@
             transition: background-color .15s;
             caret-color: #979797;
             appearance: none;
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: #{$desktop-width}px) {
+                height: 45px;
+                font-size: 20px;
+            }
+            @media (min-width: 1920px) {
                 padding-left: 30px;
                 height: 62px;
                 border-radius: 31px;
@@ -223,7 +230,11 @@
             font-size: 14px;
             transition: .15s;
             pointer-events: none;
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: #{$desktop-width}px) {
+                top: calc(50% - 10px);
+                font-size: 20px;
+            }
+            @media (min-width: 1920px) {
                 top: calc(50% - 15px);
                 left: 78px;
                 font-size: 36px;
@@ -237,20 +248,26 @@
                     color: rgba(#fff, .5);
                     font-size: 11px;
                     transform: translateY(-17px);
-                    @media (min-width: #{$large-width + 1}px) {
+                    @media (min-width: #{$tablet-width}px) {
+                        transform: translateY(-33px);
+                    }
+                    @media (min-width: #{$desktop-width}px) {
+                        transform: translateY(-22px);
+                    }
+                    @media (min-width: 1920px) {
                         font-size: 21px;
                         transform: translateY(-33px);
                     }
                     &.main-style {
                         background-color: rgb(84, 82, 233);
                         @media (min-width: #{$tablet-width}px) {
-                            background-image: linear-gradient(to right, rgb(74, 63, 200), rgb(62, 51, 188));
+                            background-image: linear-gradient(to right, rgb(80, 57, 210), rgb(73, 50, 202));
                         }
                     }
                     &.code-style {
                         background-image: linear-gradient(to right, rgb(76, 52, 204), rgb(46, 23, 169));
                         @media (min-width: #{$tablet-width}px) {
-                            background-image: linear-gradient(to right, rgb(38, 29, 160), rgb(58, 48, 179));
+                            background-image: linear-gradient(to right, rgb(38, 16, 162), rgb(51, 29, 177));
                         }
                     }
                 }
@@ -259,18 +276,25 @@
     }
     .fields {
         @media (min-width: #{$tablet-width}px) {
-            position: relative;
             margin: 0 auto 68px;
-            width: 704px;
-            height: 460px;
-            background: url('../image/coupon/detail/form-bg-m.png') no-repeat;
+            width: 737px;
         }
-        @media (min-width: #{$large-width + 1}px) {
-            max-width: 1717px;
-            width: 100%;
-            height: 1061px;
-            background-image: url('../image/coupon/detail/form-bg.png');
-            background-position: 50% 0;
+        @media (min-width: #{$desktop-width}px) {
+            width: 1200px;
+        }
+        @media (min-width: 1920px) {
+            width: 1755px;
+        }
+        &__content {
+            position: relative;
+            @media (min-width: #{$tablet-width}px) {
+                padding-top: percentage(460 / 737);
+                background: url('../image/coupon/detail/form-bg-m.png') 50% 0/contain no-repeat;
+            }
+            @media (min-width: #{$desktop-width}px) {
+                padding-top: percentage(1061 / 1755);
+                background-image: url('../image/coupon/detail/form-bg.png');
+            }
         }
     }
     .main {
@@ -282,7 +306,12 @@
             padding-left: 0;
             width: 288px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: #{$desktop-width}px) {
+            top: 120px;
+            left: 570px;
+            width: 400px;
+        }
+        @media (min-width: 1920px) {
             top: 120px;
             left: 50%;
             width: 635px;
@@ -301,7 +330,12 @@
             width: 193px;
             background: none;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: #{$desktop-width}px) {
+            top: 460px;
+            left: 190px;
+            width: 300px;
+        }
+        @media (min-width: 1920px) {
             top: 670px;
             left: calc(50% - 610px);
             width: 473px;
@@ -320,12 +354,12 @@
             margin-bottom: 20px;
         }
         input {
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 height: 84px;
                 border-radius: 42px;
             }
             ~ .field__text {
-                @media (min-width: #{$large-width + 1}px) {
+                @media (min-width: 1920px) {
                     top: calc(50% - 21px);
                 }
             }
@@ -355,9 +389,9 @@
             @media (min-width: #{$tablet-width}px) {
                 margin-bottom: 55px;
                 padding-top: 30px;
-                font-size: 30px;
+                font-size: 26px;
             }
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 margin-bottom: 80px;
                 padding-top: 50px;
                 font-size: 36px;
@@ -371,9 +405,9 @@
             }
             @media (min-width: #{$tablet-width}px) {
                 margin-bottom: .5em;
-                font-size: 26px;
+                font-size: 24px;
             }
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 font-size: 36px;
             }
         }
@@ -386,7 +420,7 @@
                 @media (min-width: #{$tablet-width}px) {
                     width: 414px;
                 }
-                @media (min-width: #{$large-width + 1}px) {
+                @media (min-width: 1920px) {
                     width: 546px;
                 }
                 &::before {
@@ -423,7 +457,7 @@
                 border-radius: 7px;
                 font-size: 17px;
             }
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 padding-left: 23px;
                 height: 58px;
                 font-size: 23px;
@@ -448,7 +482,7 @@
                 border-radius: 7px;
                 font-size: 21px;
             }
-            @media (min-width: #{$large-width + 1}px) {
+            @media (min-width: 1920px) {
                 padding-left: 23px;
                 width: 480px;
                 height: 58px;
@@ -460,7 +494,7 @@
                 @media (min-width: #{$tablet-width}px) {
                     font-size: 21px;
                 }
-                @media (min-width: #{$large-width + 1}px) {
+                @media (min-width: 1920px) {
                     font-size: 26px;
                 }
             }
@@ -471,9 +505,9 @@
         padding-top: 37px;
         @media (min-width: #{$tablet-width}px) {
             margin-bottom: 120px;
-            font-size: 26px;
+            font-size: 24px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             margin-bottom: 95px;
             font-size: 32px;
         }
@@ -509,9 +543,9 @@
         @media (min-width: #{$tablet-width}px) {
             width: 164px;
             height: 50px;
-            font-size: 36px;
+            font-size: 33px;
         }
-        @media (min-width: #{$large-width + 1}px) {
+        @media (min-width: 1920px) {
             width: 263px;
             height: 74px;
         }

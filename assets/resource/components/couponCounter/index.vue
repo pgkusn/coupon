@@ -26,18 +26,13 @@ module.exports = {
         },
         start: function () {
             if (!this.userLogin) {
-                let url = location.origin + location.pathname + location.hash + '?1';
+                let url = location.origin + location.pathname + '#/detail';
                 this.setCookie('user_signed_in_redirect_to', url, 1, domain);
                 location.href = 'https://vidol.tv/login';
             }
             else {
                 this.$router.push('/detail');
             }
-        }
-    },
-    mounted: function () {
-        if (location.hash === '#/?1') {
-            this.$router.push('/detail');
         }
     },
 }

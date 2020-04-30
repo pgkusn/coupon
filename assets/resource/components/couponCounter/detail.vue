@@ -6,31 +6,33 @@
         </h2>
         <form action="/payments/billing_coupon" method="post">
             <div class="fields">
-                <div class="main container">
-                    <h1 class="title">優惠兌換櫃台</h1>
-                    <div class="field">
-                        <input type="text" name="name" required v-model="info.name" :class="{ active: info.name.length }">
-                        <div class="field__text main-style">訂閱者姓名</div>
-                    </div>
-                    <div class="field">
-                        <input type="email" name="email" required v-model="info.email" :class="{ active: info.email.length }">
-                        <div class="field__text main-style">連絡信箱</div>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="phone" required v-model="info.phone" :class="{ active: info.phone.length }">
-                        <div class="field__text main-style">聯絡電話</div>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="address" required v-model="info.address" :class="{ active: info.address.length }">
-                        <div class="field__text main-style">地址</div>
-                    </div>
-                </div>
-                <div class="code">
-                    <div class="code__form">
-                        <p class="title">優惠序號</p>
+                <div class="fields__content">
+                    <div class="main container">
+                        <h1 class="title">優惠兌換櫃台</h1>
                         <div class="field">
-                            <input type="text" name="code" required v-model="info.code" :class="{ active: info.code.length }">
-                            <div class="field__text code-style">輸入優惠序號</div>
+                            <input type="text" name="name" required v-model="info.name" :class="{ active: info.name.length }">
+                            <div class="field__text main-style">訂閱者姓名</div>
+                        </div>
+                        <div class="field">
+                            <input type="email" name="email" required v-model="info.email" :class="{ active: info.email.length }">
+                            <div class="field__text main-style">連絡信箱</div>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="phone" required v-model="info.phone" :class="{ active: info.phone.length }">
+                            <div class="field__text main-style">聯絡電話</div>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="address" required v-model="info.address" :class="{ active: info.address.length }">
+                            <div class="field__text main-style">地址</div>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <div class="code__form">
+                            <p class="title">優惠序號</p>
+                            <div class="field">
+                                <input type="text" name="coupon" required v-model="info.code" :class="{ active: info.code.length }">
+                                <div class="field__text code-style">輸入優惠序號</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +66,7 @@
                 </label>
                 <div class="radio-desc">
                     <p class="radio-desc--triplicate">開立三聯式發票買受人請填寫公司抬頭</p>
-                    <input type="text" name="buyer_ubn" placeholder="統一編號" :required="invoiceValue === '3'" ref="tax">
+                    <input type="text" name="buyer_ubn" placeholder="統一編號" :required="invoiceValue === 'paper_invoice'" ref="tax">
                 </div>
             </div>
             <div class="postscript container">
@@ -77,7 +79,6 @@
             </div>
             <input type="submit" value="兌換">
 
-            <input type="hidden" name="coupon" value="優惠券序號">
             <input type="hidden" name="payment_method" value="1">
         </form>
     </div>
@@ -102,10 +103,13 @@ module.exports = {
         userLogin: function () {
             return this.$store.state.userLogin;
         },
+        api_domain_url: function () {
+            return this.$store.state.api_domain_url;
+        },
     },
     watch: {
         invoiceValue: function (value) {
-            if (value === '3') {
+            if (value === 'paper_invoice') {
                 this.$refs.tax.focus();
             }
         }
@@ -118,7 +122,23 @@ module.exports = {
         }
     },
     mounted: function () {
-        if (!this.userLogin) {
+        if (this.userLogin) {
+            let userToken = $.cookie('_user_token');
+            let headers = { Authorization: userToken };
+            axios({
+                method: 'GET',
+                url: 'https://' + this.api_domain_url + '/users/profile',
+                headers
+            })
+                .then(function (res) {
+                    let profile = res.data;
+                    this.info.name = profile.full_name;
+                    this.info.email = profile.contact_email;
+                    this.info.phone = profile.contact_number;
+                    this.info.address = profile.address;
+                }.bind(this));
+        }
+        else {
             let url = location.origin + location.pathname + location.hash;
             this.setCookie('user_signed_in_redirect_to', url, 1, domain);
             location.href = 'https://vidol.tv/login';

@@ -8,6 +8,7 @@ const router = new VueRouter({
 const store = new Vuex.Store({
     state: {
         userLogin: false,
+        api_domain_url
     },
     mutations: {
         updateLogin(state, data) {
