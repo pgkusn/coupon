@@ -8,12 +8,16 @@ const router = new VueRouter({
 const store = new Vuex.Store({
     state: {
         userLogin: false,
-        api_domain_url
+        api_domain_url,
+        profile: {},
     },
     mutations: {
         updateLogin(state, data) {
             state.userLogin = data;
-        }
+        },
+        setProfile(state, data) {
+            state.profile = data;
+        },
     }
 })
 
@@ -46,6 +50,7 @@ new Vue({
                         setCookie('propic', '', 1, domain);
                     }
                     else {
+                        store.commit('setProfile', data);
                         if (data.profile_image_url && data.profile_image_url != null) {
                             setCookie('propic', data.profile_image_url, 1, domain);
                         }

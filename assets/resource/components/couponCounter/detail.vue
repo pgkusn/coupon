@@ -10,19 +10,19 @@
                     <div class="main container">
                         <h1 class="title">優惠兌換櫃台</h1>
                         <div class="field">
-                            <input type="text" name="name" required v-model="info.name" :class="{ active: info.name.length }">
+                            <input type="text" name="name" required v-model="profile.name" :class="{ active: profile.name.length }">
                             <div class="field__text main-style">訂閱者姓名</div>
                         </div>
                         <div class="field">
-                            <input type="email" name="email" required v-model="info.email" :class="{ active: info.email.length }">
+                            <input type="email" name="email" required v-model="profile.email" :class="{ active: profile.email.length }">
                             <div class="field__text main-style">連絡信箱</div>
                         </div>
                         <div class="field">
-                            <input type="text" name="phone" required v-model="info.phone" :class="{ active: info.phone.length }">
+                            <input type="text" name="phone" required v-model="profile.phone" :class="{ active: profile.phone.length }">
                             <div class="field__text main-style">聯絡電話</div>
                         </div>
                         <div class="field">
-                            <input type="text" name="address" required v-model="info.address" :class="{ active: info.address.length }">
+                            <input type="text" name="address" required v-model="profile.address" :class="{ active: profile.address.length }">
                             <div class="field__text main-style">地址</div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <div class="code__form">
                             <p class="title">優惠序號</p>
                             <div class="field">
-                                <input type="text" name="coupon" required v-model="info.code" :class="{ active: info.code.length }">
+                                <input type="text" name="coupon" required v-model="profile.code" :class="{ active: profile.code.length }">
                                 <div class="field__text code-style">輸入優惠序號</div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ module.exports = {
     name: 'Detail',
     data: function () {
         return {
-            info: {
+            profile: {
                 name: '',
                 email: '',
                 phone: '',
@@ -106,12 +106,21 @@ module.exports = {
         api_domain_url: function () {
             return this.$store.state.api_domain_url;
         },
+        profileInfo: function () {
+            return this.$store.state.profile;
+        },
     },
     watch: {
         invoiceValue: function (value) {
             if (value === 'paper_invoice') {
                 this.$refs.tax.focus();
             }
+        },
+        profileInfo: function (value) {
+            this.profile.name = value.full_name;
+            this.profile.email = value.contact_email;
+            this.profile.phone = value.contact_number;
+            this.profile.address = value.address;
         }
     },
     methods: {
@@ -122,23 +131,7 @@ module.exports = {
         }
     },
     mounted: function () {
-        if (this.userLogin) {
-            let userToken = $.cookie('_user_token');
-            let headers = { Authorization: userToken };
-            axios({
-                method: 'GET',
-                url: 'https://' + this.api_domain_url + '/users/profile',
-                headers
-            })
-                .then(function (res) {
-                    let profile = res.data;
-                    this.info.name = profile.full_name;
-                    this.info.email = profile.contact_email;
-                    this.info.phone = profile.contact_number;
-                    this.info.address = profile.address;
-                }.bind(this));
-        }
-        else {
+        if (!this.userLogin) {
             let url = location.origin + location.pathname + location.hash;
             this.setCookie('user_signed_in_redirect_to', url, 1, domain);
             location.href = 'https://vidol.tv/login';
