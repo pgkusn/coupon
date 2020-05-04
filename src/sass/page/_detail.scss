@@ -248,9 +248,6 @@
                     color: rgba(#fff, .5);
                     font-size: 11px;
                     transform: translateY(-17px);
-                    @media (min-width: #{$tablet-width}px) {
-                        transform: translateY(-33px);
-                    }
                     @media (min-width: #{$desktop-width}px) {
                         transform: translateY(-22px);
                     }
