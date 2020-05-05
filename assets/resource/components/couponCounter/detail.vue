@@ -116,11 +116,14 @@ module.exports = {
                 this.$refs.tax.focus();
             }
         },
-        profileInfo: function (value) {
-            this.profile.name = value.full_name;
-            this.profile.email = value.contact_email;
-            this.profile.phone = value.contact_number;
-            this.profile.address = value.address;
+        profileInfo: {
+            handler: function (value) {
+                this.profile.name = value.full_name;
+                this.profile.email = value.contact_email;
+                this.profile.phone = value.contact_number;
+                this.profile.address = value.address;
+            },
+            immediate: true
         }
     },
     methods: {
