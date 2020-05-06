@@ -6,7 +6,7 @@
         {
             "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "/assets/resource/css/"
+            "savePath": "/assets/resource/css/coupon/"
         }
     ]
 }
