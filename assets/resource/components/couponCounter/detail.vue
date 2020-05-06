@@ -10,19 +10,19 @@
                     <div class="main container">
                         <h1 class="title">優惠兌換櫃台</h1>
                         <div class="field">
-                            <input type="text" name="name" required v-model="profile.name" :class="{ active: profile.name.length }">
+                            <input type="text" name="name" required v-model="profile.name" :class="{ active: profile.name && profile.name.length }">
                             <div class="field__text main-style">訂閱者姓名</div>
                         </div>
                         <div class="field">
-                            <input type="email" name="email" required v-model="profile.email" :class="{ active: profile.email.length }">
+                            <input type="email" name="email" required v-model="profile.email" :class="{ active: profile.email && profile.email.length }">
                             <div class="field__text main-style">連絡信箱</div>
                         </div>
                         <div class="field">
-                            <input type="text" name="phone" required v-model="profile.phone" :class="{ active: profile.phone.length }">
+                            <input type="text" name="phone" required v-model="profile.phone" :class="{ active: profile.phone && profile.phone.length }">
                             <div class="field__text main-style">聯絡電話</div>
                         </div>
                         <div class="field">
-                            <input type="text" name="address" required v-model="profile.address" :class="{ active: profile.address.length }">
+                            <input type="text" name="address" required v-model="profile.address" :class="{ active: profile.address && profile.address.length }">
                             <div class="field__text main-style">地址</div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <div class="code__form">
                             <p class="title">優惠序號</p>
                             <div class="field">
-                                <input type="text" name="coupon" required v-model="profile.code" :class="{ active: profile.code.length }">
+                                <input type="text" name="coupon" required v-model="profile.code" :class="{ active: profile.code && profile.code.length }">
                                 <div class="field__text code-style">輸入優惠序號</div>
                             </div>
                         </div>
